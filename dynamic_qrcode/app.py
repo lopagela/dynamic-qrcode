@@ -7,6 +7,7 @@ from starlette.responses import RedirectResponse
 
 from dynamic_qrcode.components.http_redirect_repository import HttpLinkComponent
 from dynamic_qrcode.components.qr_code_generation import get_qrcode_as_image
+from dynamic_qrcode.configuration import get_initial_url_map
 
 log = logging.getLogger(__name__)
 
@@ -15,7 +16,11 @@ PATH_PREFIX = "/q"
 
 router = APIRouter(prefix=PATH_PREFIX)
 url_link_component = HttpLinkComponent()
-url_link_component.save("123", "https://google.fr")
+
+
+default_url_link = get_initial_url_map(filename="default-links.json")
+for qr_code_id, destination_url in default_url_link.items():
+    url_link_component.save(qr_code_id, destination_url)
 
 
 @router.get(
