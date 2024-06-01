@@ -1,0 +1,11 @@
+[server]
+# Must start with a slash
+prefix = "/q"
+url_host = "http://localhost:8080"
+
+[qrcode_redirections]
+# key = value
+# /q/123 will redirect to http://example.com
+123 = "http://example.com"
+# /q/wiki will redirect to https://en.wikipedia.org/
+wiki = "https://en.wikipedia.org/"

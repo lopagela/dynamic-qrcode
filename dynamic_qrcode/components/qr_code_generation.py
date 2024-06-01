@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 # TODO verify that there are no memory leak because of the stream not being closed
 def get_qrcode_as_image(url: str) -> BinaryIO:
     log.debug("Building a QR code for the url=%s", url)
-    qr = qrcode.QRCode(
+    qr = qrcode.main.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,

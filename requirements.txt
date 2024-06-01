@@ -1,4 +1,0 @@
-fastapi==0.75.1
-qrcode[pil]
-uvicorn[standard]
-gunicorn

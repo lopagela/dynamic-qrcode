@@ -3,6 +3,7 @@ from typing import Dict, Optional
 
 log = logging.getLogger(__name__)
 
+
 # Looks like a repository so far
 class HttpLinkComponent:
     def __init__(self):

@@ -1,26 +1,30 @@
 # Dynamic QR code web-server
 
-TODO
+Configure HTTP path that redirects to your HTTP targets defined in configuration.
+
+Load the configuration from your `~/.config/dynamic_qrcode/config.yaml` file,
+and start to serve the QR code for the defined targets.
+
+See `/docs` for the API documentation.
 
 ## Development
+Start a development server with `uvicorn` that reloads the server on file changes:
 
 ```shell
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
+python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip
+pip install -e '.'
 
 uvicorn dynamic_qrcode.__main__:app --reload
 ```
 
 ## Production run
-```shell
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
+Start the server with `gunicorn`:
 
-URL_HOST="https://example.com" gunicorn dynamic_qrcode.__main__:app -w 4 -k uvicorn.workers.UvicornWorker
+```shell
+python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip
+pip install '.'
+
+gunicorn dynamic_qrcode.__main__:app -w 4 -k uvicorn.workers.UvicornWorker
 ```
 
 ## Additional libraries required by Pillow for Raspberry

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynamic-qrcode"
+version = "0.2.0"
+requires-python = ">=3.9"
+description = "Webserver to generate QR codes dynamically"
+readme = "README.md"
+authors = [
+    { name = "Louis Melchior" }
+]
+
+dependencies = [
+    "fastapi==0.111.0",
+    "qrcode[pil]==7.4.2",
+    "uvicorn[standard]",
+    "gunicorn"
+]
+
+[project.optional-dependencies]
+dev = [
+    "dynamic-qrcode"
+]
+
+[tool.setuptools]
+packages = []
