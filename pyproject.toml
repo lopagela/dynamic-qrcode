@@ -14,7 +14,7 @@ authors = [
 
 dependencies = [
     "fastapi==0.115.2",
-    "qrcode[pil]==7.4.2",
+    "qrcode[pil]==8.0",
     "uvicorn[standard]",
     "gunicorn"
 ]
